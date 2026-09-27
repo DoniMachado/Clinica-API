@@ -6,7 +6,6 @@ import security.auth as auth
 
 userDataBase = u.UserDatabase()
 
-
 @pytest_asyncio.fixture
 async def create_token(client_test: AsyncClient):
     user = await userDataBase.get_by_login(login='adm.teste.1')
