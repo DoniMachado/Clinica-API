@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block main %}
+<div class="appointment-container d-flex flex-column justify-content-start align-items-stretch">
+    <div class="appointment-content d-flex flex-column justify-content-center align-items-center">
+        <h3 class="appointment-content-title">
+            Agendamento - {{appointment.status}}
+        </h3>
+        <div>
+            <small>
+                <p class="appointment-start-at">
+                    <b>Início:</b> {{appointment.start_at_local}}
+                </p>       
+            </small>  
+            <small>
+                <p class="appointment-start-at">
+                    <b>Fim:</b> {{appointment.end_at_local}}
+                </p>       
+            </small> 
+        </div>        
+        <p class="appointment-doctor">
+            {{doctor.name}}
+        </p>
+        <p class="appointment-patient">
+            {{patient.name}}
+        </p>
+    </div>
+</div>
+{% endblock main %}

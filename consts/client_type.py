@@ -1,0 +1,7 @@
+USER_CLIENT = "user"
+M2M_CLIENT = "m2m"
+
+ALL_CLIENT_TYPES = [
+    USER_CLIENT,
+    M2M_CLIENT
+]
