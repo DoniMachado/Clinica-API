@@ -45,7 +45,7 @@ class Patient(Document):
 
 
     class Settings:
-        name = "patient"
+        name = "patients"
 
 
 class PatientResponseDTO(BaseModel):

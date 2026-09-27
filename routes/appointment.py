@@ -35,8 +35,8 @@ async def get_all_appointments(token: TokenData = Depends(auth.validate_token)) 
     
     return await appointmentDatabase.get_all()
 
-@appointment_router.get("/patient/{patient_id}", response_model=AppointmentResponseDTO)
-async def get_patient_appointments(patient_id: PydanticObjectId, token: TokenData = Depends(auth.validate_token)) -> AppointmentResponseDTO:
+@appointment_router.get("/patient/{patient_id}", response_model=List[AppointmentResponseDTO])
+async def get_patient_appointments(patient_id: PydanticObjectId, token: TokenData = Depends(auth.validate_token)) -> List[AppointmentResponseDTO]:
     if not token.has_permission(perm.APPOINTMENT_READ): 
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Can't access appointment's data.") 
 
@@ -45,8 +45,8 @@ async def get_patient_appointments(patient_id: PydanticObjectId, token: TokenDat
 
     return await appointmentDatabase.get_all_by_patient_id(patient_id = patient_id)
 
-@appointment_router.get("/doctor/{doctor_id}", response_model=AppointmentResponseDTO)
-async def get_doctor_appointments(doctor_id: PydanticObjectId, token: TokenData = Depends(auth.validate_token)) -> AppointmentResponseDTO:
+@appointment_router.get("/doctor/{doctor_id}", response_model=List[AppointmentResponseDTO])
+async def get_doctor_appointments(doctor_id: PydanticObjectId, token: TokenData = Depends(auth.validate_token)) -> List[AppointmentResponseDTO]:
     if not token.has_permission(perm.APPOINTMENT_READ): 
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN, detail="Can't access appointment's data.") 
 
