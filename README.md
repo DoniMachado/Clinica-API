@@ -15,4 +15,4 @@
     Na pasta eventos-api (raiz do projeto), execute o comando **python -m scripts.seed**
 # Módulo Tests:
     Responsável por organizar os arquivos de tests.
-    Na pasta eventos-api (raiz do projeto), execute o comando **python -m scripts.seed**
+    Na pasta eventos-api (raiz do projeto), execute o comando **pytest -v**
