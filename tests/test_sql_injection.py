@@ -19,7 +19,6 @@ async def test_sql_injection_regex_forbidden(client_test: AsyncClient, get_docto
     doctor_1 = get_doctors[0]
     token = auth.create_token(doctor_1)
     name = "' OR '1'='1"
-    print(name)
     response = await client_test.get(f"/patient/by-name/{name}", headers={"Authorization": f"Bearer {token}"}) 
     assert response.status_code == 403
 
@@ -28,6 +27,5 @@ async def test_sql_injection_regex_forbidden(client_test: AsyncClient, get_docto
     doctor_1 = get_doctors[0]
     token = auth.create_token(doctor_1)
     name = "' OR '1'='1"
-    print(name)
     response = await client_test.get(f"/patient/by-name-vulnerable/{name}", headers={"Authorization": f"Bearer {token}"}) 
     assert response.status_code == 403

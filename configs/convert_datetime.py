@@ -11,8 +11,6 @@ def to_utc(dt: datetime) -> datetime:
     return dt.astimezone(timezone.utc)
 
 def from_utc(dt: datetime) -> datetime:
-    print("ANTES:", dt)
-    print("TZ:", dt.tzinfo)
 
     if dt.tzinfo is None:
         dt = dt.replace(tzinfo=timezone.utc)
